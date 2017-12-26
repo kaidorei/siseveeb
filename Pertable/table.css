@@ -1,0 +1,62 @@
+td.cell {
+	border: 1px solid #000000;
+	text-align: center;
+	vertical-align: top;
+	padding: 1px;
+	min-width: 3em;
+}
+
+td.selected-cell {
+	border: 3px solid #000000;
+	text-align: center;
+	vertical-align: top;
+	padding: 0px;
+	min-width: 3em;
+}
+
+a.symbol:link, a.symbol:visited {
+	color: #000000;
+	padding-left: 3px;
+	padding-right: 3px;
+	font: bold 160% Georgia, "Times New Roman", Times, serif;
+}
+
+a.symbol:hover {
+	color: #FFFFFF;
+	background-color: #000000;
+	text-decoration: none;
+}
+
+th.group {
+	vertical-align: bottom;
+	color: #FFFFFF;
+	background-color: #000000;
+}
+
+th.period {
+	vertical-align: middle;
+	color: #FFFFFF;
+	background-color: #000000;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+th.filling {
+	font-size: 120%;
+	vertical-align: middle;
+	text-align: left;
+}
+
+th.block {
+	font-size: 120%;
+}
+
+div.info {
+	white-space: nowrap;
+	font: 85% Arial, Verdana, Helvetica, sans-serif;
+}
+
+td.separateblock {
+	font: bold 160% Georgia, "Times New Roman", Times, serif;
+	text-align: center;
+}

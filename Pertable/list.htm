@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<LINK HREF="common.css" REL="stylesheet" TYPE="text/css">
+<SCRIPT TYPE="TEXT/JAVASCRIPT" LANGUAGE="JAVASCRIPT" SRC="general.js"></SCRIPT>
+<SCRIPT TYPE="TEXT/JAVASCRIPT" LANGUAGE="JAVASCRIPT" SRC="dialogs.js"></SCRIPT>
+<SCRIPT LANGUAGE="JAVASCRIPT" TYPE="TEXT/JAVASCRIPT">
+function bodyLoad()
+{
+	T = opener.T;
+	var props = opener.getListDlg().selected;
+	var table = document.getElementById("tblList");
+	var row;
+	var cell;
+	
+	row = table.insertRow(-1);
+	for (var k = 0; k < props.length; k++)
+	{
+		cell = document.createElement("th");
+		cell.setAttribute("align", "left");
+		cell.setAttribute("valign", "top");
+		cell.innerHTML = props[k].getName(true, true);
+		row.appendChild(cell);
+	}
+	
+	for (var i = 0; i < opener.Symbols.length; i++)
+	{
+	 	row = table.insertRow(-1);
+		for (k = 0; k < props.length; k++)
+			row.insertCell(-1).innerHTML = props[k].format(i);
+	}
+}
+</SCRIPT>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1"><TITLE>Data for element</TITLE></HEAD>
+<BODY onLoad="bodyLoad();">
+
+<TABLE CELLPADDING="5" CELLSPACING="1" BORDER="0" ID="tblList"></TABLE>
+</BODY>
+</HTML>

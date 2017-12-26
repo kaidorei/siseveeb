@@ -1,0 +1,117 @@
+<HTML>
+<HEAD>
+<LINK HREF="plot.css" REL="stylesheet" TYPE="text/css">
+<!--[if IE]><script language="javascript" type="text/javascript" src="excanvas.js"></script><![endif]-->
+<SCRIPT LANGUAGE="javascript" TYPE="text/javascript" SRC="jquery.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" TYPE="text/javascript" SRC="jquery.flot.js"></SCRIPT>
+</HEAD>
+<BODY>
+<DIV ID="placeholder" STYLE="width: 100%; height: 100%;"></DIV>
+<SCRIPT ID="source" LANGUAGE="javascript" TYPE="text/javascript">
+var Symbols = opener.Symbols;
+var data;
+var opts = { grid: { hoverable: true } };
+
+function PreparePlotData() {
+	var Props = opener.getPlotDlg().selected;
+	var Colors = ["red", "blue", "lime", "fuchsia", "aqua", "maroon", "teal", "black"];
+	
+	data = new Array(Props.length);
+
+	for (var k = 0; k < Props.length; k++) {
+		var XY = new Array(Symbols.length);
+		var factor; 
+		
+		if (opener.getPlotDlg().rescale.checked) {
+			factor = Math.max( Math.abs(Props[k].maxval), Math.abs(Props[k].minval) );
+			factor = Math.floor(Math.log(factor) * Math.LOG10E);
+			factor = Math.pow(10.0, -factor);
+		} else
+			factor = 1;
+	
+		for (var i = 0; i < Symbols.length; i++) {
+			if (Props[k].data[i] == null)
+				XY[i] = null;
+			else if (opener.getPlotDlg().log.checked)
+				XY[i] = [i+1, Math.log(Props[k].data[i]) / Math.LN10 ];
+			else
+				XY[i] = [i+1, Props[k].data[i] * factor ];
+		}
+		
+		data[k] = {
+			data: XY,
+			lines: { show: true, fill: false },
+			points: { show: true },
+			shadowSize: 0,
+			label: Props[k].getName(true),
+			color: Colors[k]
+		};
+		
+		if (factor != 1)
+			data[k].label +=  " X " + factor;
+	}
+	
+	
+	if (opener.getPlotDlg().log.checked) {
+		var max = Number.MIN_VALUE;
+		for (var k = 0; k < Props.length; k++)
+			if (max < Props[k].maxval)
+				max = Props[k].maxval;
+		
+		max = Math.ceil(Math.log(max) / Math.LN10);
+		
+		var min = Number.MAX_VALUE;
+		for (var k = 0; k < Props.length; k++)
+			if (min > Props[k].minval)
+				min = Props[k].minval;
+		
+		min = Math.floor(Math.log(min) / Math.LN10);
+		
+		var ticks = new Array(max - min + 1);
+		for (var m = min; m <= max; m++ )
+			ticks[m - min] = [m, "10<SUP>" + m + "</SUP>"];
+		
+		opts.yaxis = { ticks: ticks };
+	}
+}
+
+function showTooltip(x, y, contents) {
+	$('<DIV ID="tooltip">' + contents + '</DIV>').css( {
+		position: 'absolute',
+		'font-size': '200%',
+		display: 'none',
+		top: y + 5,
+		left: x + 5,
+		border: '1px solid #bfbfbf',
+		padding: '2px',
+		'background-color': '#ffffff',
+		opacity: 1
+	}).appendTo("body").fadeIn(200);
+}
+
+function plotHover(event, pos, item) {
+	if (item)
+	{
+		$("#tooltip").remove();
+		var x = item.datapoint[0].toFixed(2);
+		var y = item.datapoint[1].toFixed(2);
+		showTooltip(item.pageX, item.pageY, Symbols[item.datapoint[0] - 1]);
+	}
+	else
+	{
+		$("#tooltip").remove();
+	}
+}
+
+PreparePlotData();
+
+$(window).resize(function() {
+    $('#placeholder').text(''); // erase the flot graph, allowing the div to shrink correctly
+    $.plot($('#placeholder'), data, opts); // redraw the graph in the correctly sized div
+});
+
+$.plot($("#placeholder"), data, opts );
+$("#placeholder").bind("plothover", plotHover);
+</SCRIPT>
+</BODY>
+</HTML>

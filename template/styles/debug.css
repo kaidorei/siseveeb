@@ -1,0 +1,22 @@
+#debug {
+	border: 1px solid black;
+	font-size: x-small;
+	line-height: 150%;
+	padding: 0px;
+	
+	margin-top: 5px;
+	/*margin-bottom: 50px;*/
+}
+
+#debugheader {
+	font-weight: bold;
+	background-color: #b0ccd4;
+	padding: 2px;
+	border-bottom: 1px gray dashed;
+	
+	text-align: center;
+}
+
+.debugitem {
+	padding: 2px;
+}

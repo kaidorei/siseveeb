@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Teadusbuss</title>
+	<link rel="stylesheet" href="template/styles/reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="template/styles/style2.css">
+	<link rel="stylesheet" href="template/styles/debug.css">
+</head>
+<body>
+<header class="cd-header">
+	<nav class="cd-primary-nav">
+		<a href="#cd-navigation" class="nav-trigger">
+			<span>
+				<em aria-hidden="true"></em>
+			</span>
+		</a>
+		<ul id="cd-navigation">
+			<li><a href="#0"><i class="fa fa-calendar"></i><span>Kalender</span></a></li>
+			<li><a href="#1"><i class="fa fa-bug"></i><span>Putukas</span></a></li>
+			<li><a href="#2" class="active"><i class="fa fa-bus"></i><span>Buss</span></a></li>
+			<li><a href="#3"><i class="fa fa-calculator"></i><span>Kalkulaator</span></a></li>
+			<li><a href="#4"><i class="fa fa-code"></i><span>Kood</span></a></li>
+			<li class="cd-navigation-right"><a href="#5">{NAME} ({USERNAME})</a></li>
+		</ul>
+	</nav>
+</header>
+<main>
+	<p>
+	{MENU}
+	{PAGE}
+</p>
+</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="main.js"></script>
+<div style="margin-left: 50px; margin-right: 50px; margin-bottom: 25px;">{DEBUG}</div>
+</body>
+</html>

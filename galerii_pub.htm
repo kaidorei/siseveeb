@@ -1,0 +1,43 @@
+ {if $suurelt eq -1} 
+<table width="565" border="0" align="center" cellpadding="0" cellspacing="0">
+  {section name=sloop loop=$galeriipildid step=5}
+  {assign var=foo value=$foo+1}
+  <tr bordercolor="#CCCCCC" bgcolor="#FFFFFF">
+  	{section name=loop2 loop=$galeriipildid start=$smarty.section.sloop.index max=5}
+    <td align="center" valign="top" class="smallnews"> <div align="left"><a href="{$galeriipildid_link[loop2]}"><img border="0" src="{$galeriipildid[$smarty.section.loop2.index]}" alt="Veebipilt puudub" name="veeb_pilt_url"></a> </div></br></td>
+    {/section} </tr>
+  
+  {/section} 
+</table>
+{else}<!--<font size="+3" face="Arial, Helvetica, sans-serif">{$galeriipildid[$suurelt].title} </font>--> 
+
+<table width="530" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr bordercolor="#CCCCCC" bgcolor="#FFFFFF"> 
+    <td colspan="3" align="center" valign="top" > <p align="justify"><em>{$galeriipildid_body[$suurelt]}</em><br>
+    </p></td>
+  </tr>
+  <tr bordercolor="#CCCCCC" bgcolor="#FFFFFF">
+  {assign var=jargmine value=$suurelt+1}
+  {assign var=eelmine value=$suurelt-1}
+    <td colspan="2" align="center" valign="top" ><div align="left"><a href="{$galeriipildid_link[$eelmine]}" class="smallnews">&lt;-eelmine</a></div></td>
+    <td width="141" align="center" valign="top" ><div align="right"><a href="{$galeriipildid_link[$jargmine]}" class="smallnews">j&auml;rgmine-&gt;</a></div></td>
+  </tr>
+  
+  <tr>
+    <td colspan="3" align="center" valign="top"><div align="justify"> 
+        <p align="center"><img border="0" src="{$galeriipildid_s[$suurelt]}" alt="Veebipilt puudub" name="veeb_pilt_url" /></p>
+        </div></td>
+  </tr>
+  <tr>
+    <td width="21" align="center"><div align="left"><img src="../omad/image/copyright_symbol_v.jpg" alt="copy" width="20" height="20" border="0" /></div></td>
+    <td width="368" align="center"><div align="left"><span class="options">&nbsp;FYYSIKA.EE</span></div></td>
+    <td align="center" valign="top"><div align="right"><a href="http://www.fyysika.ee/fyysika/galerii_tape2007" class="smallnews">Tagasi albumi algusesse</a></div></td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center" valign="top"><!--<div align="left">
+      <p class="smallnews">Loe edasi:</p>
+      <p class="smallnews">Vaata eksperimente:  </p>
+    </div>--></td>
+  </tr>
+</table>
+{/if}

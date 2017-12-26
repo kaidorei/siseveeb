@@ -1,0 +1,85 @@
+div.dialog {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	display: none;
+	padding: 5px;
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+	border-bottom-width: 2px;
+	border-right-width: 2px;
+}
+
+div.dialog-header {
+	background-color: #000066;
+	padding: 3px;
+	margin-bottom: 3px;
+	font: bold 120% "Georgia", "Times New Roman", Times, serif;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+div.dialog-content {
+}
+
+div.dialog-footer {
+	margin-top: 3px;
+	text-align: center;
+}
+
+input.dialog-button {
+	margin: 2px;
+	font-size: 100%;
+	cursor: pointer;
+}
+
+select.dialog-select {
+	border: 1px solid #000000;
+	margin-bottom: 5px;
+}
+
+div.dialog-list {
+	margin-bottom: 5px;
+}
+
+label.dialog-list-item-label {
+	cursor: pointer;
+}
+
+p.dialog-list-region-title {
+	margin-top: 5px;
+	margin-bottom: 0px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+input.dialog-check {
+}
+
+input.dialog-radio {
+}
+
+input.dialog-edit {
+	margin-bottom: 5px;
+}
+
+.dialog-subtitle {
+	font-weight: bold;
+}
+
+p.dialog-subtitle {
+	margin-top: 5px;
+	margin-bottom: 0px;
+}
+
+img.dialog-icon {
+	cursor: pointer;
+	vertical-align: baseline;
+}
+
+hr.dialog-rule {
+	border: 0px;
+	color: #000000;
+	background-color: #000000;
+	height: 1px;
+}

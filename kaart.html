@@ -1,0 +1,37 @@
+Laiuskraad: 
+<input class="required" type="text" name="latitude" id="latitude" value="58.700000" /> 
+Pikkuskraad: 
+<input class="required" type="text" name="longitude" id="longitude" value="25.000000" />
+<br /><br />
+<div id="map" style="width: 600px; height: 420px"></div>
+
+<!-- add your map api key here -->
+<script type="text/javascript" src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAHp0G0Le7mnUAVC2THC2qnhS2FjxKTPA8vil0XRV8m9ODcrOkoRQR5dw1ldp1P_6IXiVfpY-HQROvnQ"></script>
+
+<script type="text/javascript">	
+<!--
+if (GBrowserIsCompatible()) 
+{
+	// create map and add controls
+	var map = new GMap2(document.getElementById("map"));
+	map.addControl(new GLargeMapControl());        
+	map.addControl(new GMapTypeControl());
+	
+	// set centre point of map
+	var centrePoint = new GLatLng('58.700000', '25.000000');
+	map.setCenter(centrePoint, 7);	
+	
+	// add a draggable marker
+	var marker = new GMarker(centrePoint, {draggable: true});
+	map.addOverlay(marker);
+	
+	// add a drag listener to the map
+	GEvent.addListener(marker, "dragend", function() {
+		var point = marker.getPoint();
+		map.panTo(point);
+		document.getElementById("latitude").value = point.lat();
+		document.getElementById("longitude").value = point.lng();
+    });
+}
+//-->
+</script>

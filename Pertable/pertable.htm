@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="keywords" CONTENT="periodic table, perioodilisustabel, perioodilisussüsteem, chemical elements, keemilised elemendid, Mendelejevi tabel, Mendeleev's table, chemistry, keemia">
+<LINK HREF="common.css" REL="stylesheet" TYPE="text/css">
+<LINK HREF="table.css" REL="stylesheet" TYPE="text/css">
+<SCRIPT TYPE="TEXT/JAVASCRIPT" LANGUAGE="JAVASCRIPT" SRC="general.js"></SCRIPT>
+<SCRIPT TYPE="TEXT/JAVASCRIPT" LANGUAGE="JAVASCRIPT" SRC="dialogs.js"></SCRIPT>
+<SCRIPT TYPE="TEXT/JAVASCRIPT" LANGUAGE="JAVASCRIPT" SRC="language.js"></SCRIPT>
+<SCRIPT TYPE="TEXT/JAVASCRIPT" LANGUAGE="JAVASCRIPT" SRC="lang/english.js"></SCRIPT>
+<SCRIPT TYPE="TEXT/JAVASCRIPT" LANGUAGE="JAVASCRIPT" SRC="lang/eesti.js"></SCRIPT>
+<SCRIPT TYPE="TEXT/JAVASCRIPT" LANGUAGE="JAVASCRIPT" SRC="elements.js"></SCRIPT>
+<SCRIPT TYPE="TEXT/JAVASCRIPT" LANGUAGE="JAVASCRIPT" SRC="layouts.js"></SCRIPT>
+<SCRIPT TYPE="TEXT/JAVASCRIPT" LANGUAGE="JAVASCRIPT" SRC="data.js"></SCRIPT>
+<SCRIPT TYPE="TEXT/JAVASCRIPT" LANGUAGE="JAVASCRIPT" SRC="groups.js"></SCRIPT>
+<SCRIPT TYPE="TEXT/JAVASCRIPT" LANGUAGE="JAVASCRIPT" SRC="load.js"></SCRIPT>
+<TITLE>Periodic Table of Chemical Elements</TITLE></HEAD>
+<BODY onLoad="InitApp()">
+<NOSCRIPT>
+<P><FONT SIZE="+3">This program is based on Javascript which is either disabled or unsupported by your web browser. Either enable Javascript or <A HREF="http://www.webdevelopersnotes.com/design/browsers_list.php3">upgrade</A> your web browser.</FONT></P>
+<P><FONT SIZE="+3">See programm p&otilde;hineb Javascriptil kuid Teie veebilehitseja ei toeta seda. Veenduge, et Javascript oleks lubatud või <A HREF="http://www.webdevelopersnotes.com/design/browsers_list.php3">uuendage</A> oma veebilehitsejat.</FONT></P>
+</NOSCRIPT>
+<H1 ID="maintitle" STYLE="cursor: crosshair" ONCLICK="if (loadingComplete) toggleVisibility('Toolbar');"></H1>
+<DIV ID="Toolbar" STYLE="width: 100%; display: none;"><DIV ID="ToolbarArea" STYLE="float: left"></DIV><DIV ID="SettingbarArea" STYLE="float: left"></DIV><DIV ID="LanguageArea" STYLE="float: right"></DIV></DIV>
+<DIV ID="TableContainer" STYLE="width: 100%; overflow: auto;"></DIV>
+<P>Programmi autor: <A HREF="http://valterk.edicypages.com/" target="_blank">Valter Kiisk</A>. Versioon 2012-09-09.</P>
+<IFRAME ONLOAD="TableLoadComplete();" FRAMEBORDER="0" NAME="TableLoader" ID="TableLoader" STYLE="width:0px; height:0px; border: 0px"></IFRAME>
+</BODY>
+</HTML>

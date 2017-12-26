@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+	<title>FYYSIKA.EE siseveeb</title>
+	<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="template/styles/reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="template/styles/style2.css">
+ -->
+	<style type="text/css">
+		@import url("template/styles/debug.css");
+		@import url("scat.css");
+		/*@import url("fysa.css");*/
+	</style>
+	<style type="text/css">
+		h1{font-size: 250%;color: #FFF}
+		h2{font-size: 200%;color: #f0f0f0}
+		p{padding-bottom:1em}
+		h2{padding-top: 0.3em}
+		div#nifty{ margin: 0 10%;background: #9BD1FA}
+		b.rtop, b.rbottom{display:block;background: #FFF}
+		b.rtop b, b.rbottom b{
+			display:block;height: 1px;
+			overflow: hidden; background: #33FF00
+		}
+		b.r1{margin: 0 5px}
+		b.r2{margin: 0 3px}
+		b.r3{margin: 0 2px}
+		b.rtop b.r4, b.rbottom b.r4{margin: 0 1px;height: 2px}
+	</style>
+	<script charset="utf-8" id="injection_graph_func" src="injection_graph_func.js"></script>
+</head>
+
+<body bgcolor=#FFFFFF leftmargin=0 topmargin=0 marginwidth=0 marginheight=0 onLoad="form1.focus();">
+	<!--<header class="cd-header">
+		<nav class="cd-primary-nav">
+			<a href="#cd-navigation" class="nav-trigger">
+				<span>
+					<em aria-hidden="true"></em>
+				</span>
+			</a>
+			<ul id="cd-navigation">
+				<li><a href="http://fyysika.ee/omad/index.php?page=reis_table"><i class="fa fa-calendar"></i><span>Kalender</span></a></li>
+				<li><a href="#1"><i class="fa fa-bug"></i><span>Putukas</span></a></li>
+				<li><a href="#2" class="active"><i class="fa fa-bus"></i><span>Buss</span></a></li>
+				<li><a href="#3"><i class="fa fa-calculator"></i><span>Kalkulaator</span></a></li>
+				<li><a href="#4"><i class="fa fa-code"></i><span>Kood</span></a></li>
+				<li class="cd-navigation-right"><a href="#5">{NAME} ({USERNAME})</a></li>
+			</ul>
+		</nav>
+	</header>
+-->
+	<!--<div style="text-align: center; font-size: small; color: blue; margin-bottom: 10px;">
+
+		Siseveebi koodis on toimunud mitmed kriitilised muutused.<br />
+
+		Kui esineb probleeme, siis andke teada:
+
+		<span style="color: red; text-decoration: underline;">morten.piibeleht@gmail.com</span>
+
+	</div>-->
+
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="2">
+
+<form name="form1" method="post" action="{FORM_1_ACTION}">
+
+<tr>
+
+	<td width="800" align="right" class="navi">Kasutaja:
+
+		<span style="color: blue">{NAME} ({USERNAME})</span>
+
+		<a class="navi" href="?bye=true">[ X ]</a>
+
+	</td>
+
+</tr>
+
+{MENU}
+
+<tr>
+
+	<td valign="top">
+
+		{PAGE}
+
+	</td>
+
+</tr>
+
+<tr>
+
+	<td>
+
+		<table width="800" border="0" align="center" cellpadding="0" cellspacing="0">
+
+		<tr>
+
+			<td align="left" background="image/index_57.gif"><img src="image/index_56.gif" width=9 height=23 alt=""></td>
+
+			<td align="right" background="image/index_57.gif">
+
+				<table border="0" cellpadding="0" cellspacing="0" background="image/index_61.gif">
+
+				<tr>
+
+					<td><img src="image/index_60.gif" width=27 height=23 alt=""></td>
+
+					<td>&nbsp;</td>
+
+					<td class="navi">&copy; 2014 EFS</td>
+
+					<td><img src="image/index_63.gif" width=16 height=23 alt=""></td>
+
+				</tr>
+
+				</table>
+
+			</td>
+
+		</tr>
+
+		</table>
+
+	</td>
+
+</tr>
+
+</table>
+
+
+
+<div style="margin-left: 50px; margin-right: 50px; margin-bottom: 25px;">{DEBUG}</div>
+
+
+
+</body>
+
+</html>
