@@ -467,9 +467,9 @@ function muuda_order(domain,field,element,seos_id)
 		$pattern = '/\[\@\[\d+\,\d+\]\@\]/';
 		$annot = preg_replace($pattern, $replacement, $annot);
 		$query23="UPDATE `fyysika_ee`.`exp` SET kirjeldus_est='".$db->real_escape_string($annot)."' WHERE id=".$expid." LIMIT 1";
-			//echo $query23,"<br><br>";
+		//echo $query23,"<br><br>";
+		//$result23=mysql_query($query23);
 		}
-		$result23=mysql_query($query23);
 
 // muudame exp objekti nime ...
 		$query24="UPDATE `fyysika_ee`.`exp` SET nimi_est='".$db->real_escape_string($line_pid["nimi_est"])."' , nimi_eng='".$db->real_escape_string($line_pid["nimi_eng"])."' WHERE id=".$expid." LIMIT 1";
