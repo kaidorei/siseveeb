@@ -242,7 +242,8 @@ function muuda_order(domain,field,element,seos_id)
 
 		}
 
-
+		$vahetekst = $db->real_escape_string($_POST['vahetekst']);
+		echo "Vahetekst =".$vahetekst;
 
 	if($eh=="save" and $_POST["nimi_est"]){
 
@@ -348,8 +349,12 @@ function muuda_order(domain,field,element,seos_id)
 			if(!strpos($_POST["tekst_est"],$line2r["oid2"]))
 
 			{
-
+			if(!$vahetekst){
 				$lisatekst = $lisatekst."<p>[£[".$line2r["oid2"]."]£]</p>";
+			}
+			else {
+				$lisatekst = $lisatekst."<p>[£[".$line2r["oid2"]."|vahetekst]£]</p>";
+		}
 
 			}
 
@@ -670,7 +675,8 @@ if(strpos($on_nahtav,"open_exp"))
 
     <td width="68%"><span class="options">Ava&nbsp;objektid:</span></td>
 
-    <td width="10%"><input align="middle" name="open_exp" type="text" class="field" value="<? echo $line["open_exp"]; ?>" size="3" /></td>
+		<td width="10%"><input align="middle" name="open_exp" type="text" class="field" value="<? echo $line["open_exp"]; ?>" size="3" /></td>
+		<td width="10%"><input align="middle" name="vahetekst" type="text" class="field" value="" size="3" /></td>
 
     <td><span class="navi">
 

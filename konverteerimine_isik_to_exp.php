@@ -10,46 +10,27 @@
 
      print "Connected successfully";
 
-    mysql_select_db("fyysika_ee") or die("Could not select database"); 
+    mysql_select_db("fyysika_ee") or die("Could not select database");
 
-?><? // note that multibyte support is enabled here 
+?><? // note that multibyte support is enabled here
 
 
 
-$query="SELECT * FROM `isik` order by id";
-
+$query="SELECT * FROM `exp` where gpid_demo=44 order by id";
 $result=mysql_query($query);
-
-
-
-$id_0=213300;
-
+$id_0 = 1;
 while($line=mysql_fetch_array($result)){
-
-
-$query1="INSERT INTO `fyysika_ee`.`exp` (`id`, `gpid_demo`, `naita_veebis_est`, `on_slave`, `nimi_est`,`ext_id`,`owner_user_id`)
+$query1="INSERT INTO `fyysika_ee`.`raamatX_exp` (`oid1`, `oid2`,`book_id`, `sort_order`)
 VALUES
-(".$id_0.",'53','0','0','".$db->real_escape_string(trim($line["eesnimi"]))." ".$db->real_escape_string(trim($line["perenimi"]))."','".$line["id"]."','25')";
+('37396',".$line["id"].",74,".$id_0.")";
 
 echo $query1."<br>";
 
 //$result1=mysql_query($query1);
-
-
-
-
-
-
 //$id_0=$id_vahe;
-
 $id_0++;
-
 }//while
 
 echo "korras ...";
 
 ?>
-
-
-
-	

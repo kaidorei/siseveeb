@@ -58,8 +58,9 @@ $line_temp=mysql_fetch_array($result_temp);
 				$valjund = 	$mudel;
 				$valjund_print = $mudel;
 			break;
-
+/////////////////////////////////////////////////////////////////////////////
 ///////////////////// laboritöö - pannakse järjekorda tegumi sammude välisvaated.
+/////////////////////////////////////////////////////////////////////////////////7
 			case 6:
 			// Puhastame raamatX_exp kirjetest ...
 				if($line_temp["raamatX_id"])
@@ -75,7 +76,7 @@ $line_temp=mysql_fetch_array($result_temp);
 
 				echo $query_e."<br><br>";
 
-				// Loeme eksperimendivahendid kokku:
+// Loeme eksperimendivahendid kokku://///////////////////////////////////////////
 
 				$query_vahh="SELECT * FROM exp_exp WHERE oid1=".$line_temp["id"]." AND naita_veebis=1 order by sort_order";
 				//echo $query_vahh;
@@ -83,6 +84,7 @@ $line_temp=mysql_fetch_array($result_temp);
 //				$sammud=$sammud."<p>";
 				$count_vahh=1;
 				$vahendid="<p>";
+				$vahendid_uus = "[[";
 
 				while($line_vahh=mysql_fetch_array($result_vahh))
 				{
@@ -102,18 +104,27 @@ $line_temp=mysql_fetch_array($result_temp);
 					echo $query_exp."<br><br>";
 					$vahend = strip_tags($line_vahh["title_est"],'<sub></sub><sup></sup>');
 					$vahendid=$vahendid."".$count_vahh.". ".$vahend."</br>";
+					if($count_vahh > 1)
+					{
+						$vahendid_uus=$vahendid_uus.",".$line_exp["id"];
+					}
+					else {
+						$vahendid_uus=$vahendid_uus."".$line_exp["id"];
+					}
 					$count_vahh++;
 				}
 				}
 				$vahendid=$vahendid."</p>";
+				$vahendid_uus=$vahendid_uus."]]";
+				echo "VAHENDID".$vahendid_uus."<br>";
 
-				echo "VAHENDIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIID".$vahendid."<br>";
 				$sammud=$line_temp["kirjeldus_est"];
 
 				if(strlen($vahendid)>10)
 				{
-					$sammud=$sammud."<p><b>Vahendid:</b></p>".$vahendid;
+					$sammud=$sammud."<p><b>Vahendid:</b></p>".$vahendid_uus;
 				}
+				echo $sammud;
 
 				$query_vahh="SELECT * FROM exp_exp WHERE oid1=".$line_temp["id"]." AND naita_veebis=1 order by sort_order";
 				//echo $query_vahh;

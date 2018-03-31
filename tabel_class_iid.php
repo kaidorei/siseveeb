@@ -719,7 +719,7 @@ if(strstr($list_dom,"raamat"))
 
 				if($domain=="test_nupula" or $domain=="exp_exp") {?><select id="list_order_<? echo $asi["id"];?>" onchange="muuda_order('<? echo $domain;?>','sort_order','list_order_<? echo $asi["id"];?>','<? echo $asi["id"];?>')"><?
 
-for ($i = 1; $i <= 50; $i++)
+for ($i = 0; $i <= 50; $i++)
 
 {
 

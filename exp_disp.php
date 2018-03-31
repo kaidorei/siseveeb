@@ -257,6 +257,12 @@ echo "ohhoo";
 //////////////////////////////////////////////////////////////////////////////////////////
 // Uuendame versiooni kuupäeva, kui nõutud checkboxiga
 
+if($_POST["tt_to_raamatX"])
+{
+	$query_versioon="update exp set viimane_uuendus=now() where id=".$expid." LIMIT 1";
+	$result_versioon=mysql_query($query_versioon);
+	echo $query_versioon;
+}
 if($_POST["uusversioon"])
 {
 	$query_versioon="update exp set viimane_uuendus=now() where id=".$expid." LIMIT 1";
@@ -308,28 +314,16 @@ if($_POST["kustutapilt"])
 			$queryte2="SELECT * FROM `exp_exp` WHERE oid1=".$line["id"]." order by sort_order";
 
 			//echo $queryte2;
-
 			$resultte2=mysql_query($queryte2);
-
 			$count_count=1;
-
 			while($linete2=mysql_fetch_array($resultte2))
-
 			{
-
 				$queryte3="UPDATE `exp_exp` SET sort_order=".$count_count." WHERE id=".$linete2["id"]."";
-
 				//echo $queryte3;
-
 				$resultte3=mysql_query($queryte3);
-
 				$count_count++;
-
 			}
-
 			}
-
-
 	}
 
 
@@ -416,20 +410,34 @@ if($_POST["kustutapilt"])
 
 			}
 	}
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-// kui on esitlus, aga ei ole esitluse objekti
-	if($line["gpid_demo"]==37 && !$line["ext_id"])
+  //////////////////////////////////////////////////////////////////////////////////////////////////////
+  // kui on esitlus, aga ei ole esitluse objekti
+  	if($line["gpid_demo"]==37 && !$line["ext_id"])
 
-	{
-			echo "teen puuduva raamatX objekti ...";
-			$query_insert="INSERT INTO book_slideshow (user_id,title) VALUES (25,'".$line["nimi_est"]."')";
-			$tmp=mysql_query($query_insert);
-			$tmp=mysql_fetch_array(mysql_query("SELECT last_insert_id()"));
-			$ext_id=$tmp["last_insert_id()"];
-			$query_link="UPDATE exp set ext_id=".$ext_id." WHERE id=".$line["id"]."";
-			echo $query_insert, $query_link,"<br><br>";
-			$result_link=mysql_query($query_link);
-	}
+  	{
+  			echo "teen puuduva objekti ...";
+  			$query_insert="INSERT INTO book_slideshow (user_id,title) VALUES (25,'".$line["nimi_est"]."')";
+  			$tmp=mysql_query($query_insert);
+  			$tmp=mysql_fetch_array(mysql_query("SELECT last_insert_id()"));
+  			$ext_id=$tmp["last_insert_id()"];
+  			$query_link="UPDATE exp set ext_id=".$ext_id." WHERE id=".$line["id"]."";
+  			echo $query_insert, $query_link,"<br><br>";
+  			$result_link=mysql_query($query_link);
+  	}
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+    // kui on vahend, aga ei ole vahend objekti
+    	if($line["gpid_demo"]==35 && !$line["ext_id"])
+
+    	{
+    			echo "teen puuduva vahendid objekti ...";
+    			$query_insert="INSERT INTO vahendid (nimi_est) VALUES ('".$line["nimi_est"]."')";
+    			$tmp=mysql_query($query_insert);
+    			$tmp=mysql_fetch_array(mysql_query("SELECT last_insert_id()"));
+    			$ext_id=$tmp["last_insert_id()"];
+    			$query_link="UPDATE exp set ext_id=".$ext_id." WHERE id=".$line["id"]."";
+    			//echo $query_insert, $query_link,"<br><br>";
+    			$result_link=mysql_query($query_link);
+    	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // Kui on termin, aga vastavad dictterm objekti ei ole, siis tuleks teha
 
@@ -481,6 +489,14 @@ if($_POST["kustutapilt"])
 
 			$line["ext_id"] = $dictterm_id;
 	}
+
+//---------------------------------------------------------------------------------------------------
+
+$query="SELECT * FROM exp WHERE id=".$expid;
+//echo $query."<br>";
+$result=mysql_query($query);
+$line=mysql_fetch_array($result);
+
 
 
 
@@ -1344,6 +1360,7 @@ if(strpos($on_nahtav,"kool_exp"))
 	<a class="navi" href="<? echo $PHP_SELF."?page=vahendid_disp&vid=".$line["ext_id"]; ?>">MUUDA vahendit</a>
 <?
 	}
+
 	if($line["ext_id"] and $line["gpid_demo"]==38)
 
 	{			?>
@@ -1402,7 +1419,7 @@ if(strpos($on_nahtav,"rank"))
 
 
 }?></td>
-    <td align="left">&nbsp;</td>
+    <td align="left"><input type="checkbox" name="tt_to_raamatX" id="checkbox"></td>
     <td align="left"><input type="checkbox" name="kustutapilt" id="checkbox"></span></td>
     <td align="center">    <span class="navi">  v:
       <input type="checkbox" name="vanaversioon" id="checkbox"></span>
